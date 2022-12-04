@@ -3,7 +3,7 @@ import core
 from utils import read_file
 
 
-class Problem11Test(unittest.TestCase):
+class Day1Test(unittest.TestCase):
 
     def test_split_lines(self):
         lines = read_file('test_input')
