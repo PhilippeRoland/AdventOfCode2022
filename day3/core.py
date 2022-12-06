@@ -26,6 +26,20 @@ def get_priority(duplicate):
     else:
         return ord(duplicate) - 96
 
+def get_badges_priority(lines):
+    print_lines(lines)
+    grouped_lines = [lines[i:i+3] for i in range (0,len(lines),3)]
+    print_lines(grouped_lines)
+    badges = list(map(find_badge, grouped_lines))
+    priorities = list(map(get_priority, badges))
+    print(priorities)
+    return sum(priorities)
+
+def find_badge(group):
+    for letter in group[0]:
+        if letter in group[1] and letter in group[2]:
+            return letter
+
 if __name__ == '__main__':
     script_dir = os.path.dirname(__file__)
     lines = read_file(os.path.join(script_dir, 'input'))
@@ -33,3 +47,5 @@ if __name__ == '__main__':
     print(total_priority_duplicates)
     print('----------------------------------------------------------\n'
           '----------------------------------------------------------')
+    badges_priority = get_badges_priority(lines)
+    print(badges_priority)
