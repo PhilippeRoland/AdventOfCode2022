@@ -30,5 +30,13 @@ class Day5Test(unittest.TestCase):
         self.assertEqual('D', final_setup[2][2])
         self.assertEqual('P', final_setup[2][3])
 
+    def test_solution2(self):
+        lines = read_file('test_input')
+        solution, final_setup = core.solution_2(lines)
+        self.assertEqual('MCD', solution)
+        self.assertEqual('N', final_setup[2][1])
+        self.assertEqual('Z', final_setup[2][2])
+        self.assertEqual('P', final_setup[2][3])
+
 if __name__ == '__main__':
     unittest.main()

@@ -14,6 +14,15 @@ def solution(lines):
     result = reduce((lambda crate1, crate2: crate1+crate2), result_map)
     return result, setup
 
+def solution_2(lines):
+    print_lines(lines)
+    setup, instructions = parse_input(lines)
+    print(setup)
+    run_instructions_2(setup, instructions)
+    result_map = map((lambda stack: stack[0] if stack else ''), setup)
+    result = reduce((lambda crate1, crate2: crate1+crate2), result_map)
+    return result, setup
+
 def parse_input(lines):
     #subdivision of lines containing the lines with the stacks formation, minus the column labels at the bottom
     initial_stack_lines = []
@@ -63,15 +72,22 @@ def run_instructions(setup, instructions):
             crate = setup[from_val].pop(0)
             setup[to_val].insert(0, crate)
 
+def run_instructions_2(setup, instructions):
+    for instruction in instructions:
+        from_val = int(instruction[0])-1
+        to_val = int(instruction[1])-1
+        amount = int(instruction[2])
+        for i in range(1, amount+1):
+            crate = setup[from_val].pop(0)
+            setup[to_val].insert(i-1, crate)
 
 if __name__ == '__main__':
     script_dir = os.path.dirname(__file__)
     lines = read_file(os.path.join(script_dir, 'input'))
 
-
-
-
     solution, setup = solution(lines)
     print(solution)
     print('----------------------------------------------------------\n'
           '----------------------------------------------------------')
+    solution2, setup2 = solution_2(lines)
+    print(solution2)
