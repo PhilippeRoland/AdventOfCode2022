@@ -10,12 +10,16 @@ def solution(lines):
 def parse_input(lines):
     #subdivision of lines containing the lines with the stacks formation, minus the column labels at the bottom
     initial_stack_lines = []
+    instructions_lines = []
+    reading_instructions = False
     #list of lists
     stacks = []
     stacks_width = 0
+
     for line in lines:
         if line[-1].isdigit():
             stacks_width = int(line[-1])
+            reading_instructions = True
             break
         else:
             initial_stack_lines.append(line)
