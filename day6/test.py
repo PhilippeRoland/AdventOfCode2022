@@ -1,11 +1,13 @@
 import unittest
 import core
-from utils import read_file
 
 class Day7Test(unittest.TestCase):
     def test_solution(self):
-        lines = read_file('test_input')
-        self.assertEqual(42, core.solution(lines))
+        self.assertEqual(7, core.solution("mjqjpqmgbljsphdztnvjfqwrcgsmlb"))
+        self.assertEqual(5, core.solution("bvwbjplbgvbhsrlpgdmjqwftvncz"))
+        self.assertEqual(6, core.solution("nppdvjthqldpwncqszvftbrmjlhg"))
+        self.assertEqual(10, core.solution("nznrnfrfntjfmvfwmzdfjlvtqnbhcprsg"))
+        self.assertEqual(11, core.solution("zcfzfwzzqfrljwzlrfnpqdbhtmscgvjw"))
 
 if __name__ == '__main__':
     unittest.main()
