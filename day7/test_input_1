@@ -4,6 +4,8 @@ dir a
 500 b.txt
 1000 c.dat
 $ cd a
+$ cd ..
+$ cd a
 $ ls
 250 f
 250 g
