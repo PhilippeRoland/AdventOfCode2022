@@ -10,5 +10,6 @@ def read_file_nostrip(file_adress):
 
 
 def print_lines(lines):
+    print('')
     for line in lines:
         print(line)
